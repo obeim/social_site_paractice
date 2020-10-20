@@ -6,13 +6,14 @@ const requireAuth=(req,res,next)=>{
     if(token){
         jwt.verify(token,process.env.SECRET,(err, decoded)=>{
             if(err){
-                res.redirect('/login')
+                res.send('you need to login again')
             }
             req.user=decoded;
+            req.token=token;
             next();
         })
     }else{
-        res.redirect('/login')
+        res.send('you need to login')
     }
 
 }

@@ -1,3 +1,4 @@
+const 
 //////Admin panel /GET , POST a post ,GET All posts ,GET all users ,
 const express = require('express');
 const router = express.Router();
@@ -13,4 +14,6 @@ router.patch('/posts/:id',edit_post)
 ////////////////users manging/////////////////
 router.get('/users',get_users)
 router.delete('/users/:id',delete_user)
+
+///////reports/////////////
 module.exports=router
