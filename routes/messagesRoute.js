@@ -1,3 +1,4 @@
+const { Message } = require("../models/Message");
 ///got to chat page
 router.get("/messages", (req, res) => {
   ///show chat page with avaialbe users

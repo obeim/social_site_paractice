@@ -32,14 +32,21 @@ const login_post = (req, res) => {
     if (user) {
       var id = user._id;
       var role = user.role;
-      if (bcrypt.compare(password, user.password)) {
-        const token = createToken({ id, role });
-        res
-          .cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 })
-          .send("logged in");
-      } else {
-        res.send("wrong password");
-      }
+      bcrypt
+        .compare(password, user.password)
+        .then((r) => {
+          if (r) {
+            const token = createToken({ id, role });
+            res
+              .cookie("jwt", token, { httpOnly: true, maxAge: maxAge * 1000 })
+              .send("logged in");
+          } else {
+            res.status(404).send("wrong password");
+          }
+        })
+        .catch((err) => {
+          res.status(404).send("wrong password");
+        });
     } else {
       res.status(400).send("user does not exsit");
     }
