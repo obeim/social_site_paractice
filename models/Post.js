@@ -12,6 +12,7 @@ const postSchema=mongoose.Schema({
     comment:[{
         user_id:{
             type:mongoose.SchemaTypes.ObjectId
+        
         },
         body:{
             type:String,

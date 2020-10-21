@@ -1,4 +1,4 @@
-const 
+
 //////Admin panel /GET , POST a post ,GET All posts ,GET all users ,
 const express = require('express');
 const router = express.Router();

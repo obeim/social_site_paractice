@@ -17,6 +17,7 @@ app.use(cookieParser())
 app.use('/',require('./routes/authRoutes'))
 app.use('/adminpanel',requireAuth,require('./routes/adminRoutes'))
 app.use('/profile',requireAuth,require('./routes/userRoutes'))
+app.use('/post',requireAuth,require('./routes/postRoutes'))
 app.get('/home',requireAuth,(req,res)=>{
     //redner the home page 
     ///profile page link 
